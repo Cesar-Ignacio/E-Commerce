@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedorSearch{
+    display: flex;
+    
+    svg{
+        width:clamp(1.1rem,1vw,1.5rem);
+    }
+
+    input{
+        width: 0;
+        transition: all 0.8s;
+        opacity:0;
+        margin-right: 0.5rem;
+        padding: 0.5em;
+    }
+
+    &:hover{
+        input{
+            width: 8rem;
+            opacity: 1;
+        }
+    }
+}

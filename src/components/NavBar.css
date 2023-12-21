@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns:repeat(3,1fr);
     width: clamp(250px, 100vw, 1400px);
+    transition: all ease-in-out 0.5s;
 }
 
 .logito{
@@ -16,16 +17,18 @@
     align-self: center;
     justify-self: center;
     padding: 0.5em;
-    font-size: 1.5rem;
     font-family:Futura,Helvetica,Arial,sans-serif;
     h1{
         letter-spacing: 1rem;
+        font-size:clamp(1rem,8vw,2rem);
+    
     }
 }
 
 .contenedorIconos{
     align-self: center;
     justify-self: center;
+    padding: 0.2em;
     ol{
         display: flex;
         gap: 2.5rem;
@@ -36,25 +39,9 @@
     }
     svg{
         fill: black;
-        width: 1.3rem;
+        width: clamp(1rem,4vw,1.5rem);
     }
-}
-
-.carrito{
-    /* background-color: aquamarine; */
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    svg{
-        width: 1.8rem;
-    }
-    span{
-        position: absolute;
-        font-size: 0.7rem;
-        padding-top:0.2rem ;        
-    }
-
+    
 }
 
 .categorias{
@@ -71,4 +58,22 @@
         list-style: none;
     }
 
+}
+
+@media (max-width:580px)
+{
+    .logito{
+        grid-column: 1/4;
+        grid-row: 2;
+    }
+
+    .contenedorIconos{
+        grid-column: 1/4;
+        justify-self: self-end;
+        
+    }
+
+    .categorias{
+        display:none;
+    }
 }

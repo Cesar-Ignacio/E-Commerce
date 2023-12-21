@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedorCard{
+    /* background-color: aquamarine; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span{
+        position: absolute;
+        font-size: 0.7rem;
+        padding-top:0.2rem ;        
+    }
+
+}
