@@ -8,7 +8,7 @@ const NavBar = () => {
     return (
         <nav className='navBarContenedor'>
             <div className='logito'>
-                <h1>Yaya</h1>
+                <h1>ZETA</h1>
             </div>
             <div className='contenedorIconos'>
                 <ol>
