@@ -44,21 +44,7 @@
     
 }
 
-.categorias{
-    /* border: 1px solid blue; */
-    background-color: antiquewhite;
-    grid-column: 1/4;
-    padding: 0.3em;
-    font-family:Futura,Helvetica,Arial,sans-serif;
-    ol{
-        display: flex;
-        justify-content: space-evenly;
-    }
-    li{
-        list-style: none;
-    }
 
-}
 
 @media (max-width:580px)
 {

@@ -3,8 +3,9 @@ import "./NavBar.css"
 import CardWidget from './CardWidget'
 import SearchWidget from "./SearchWidget";
 import Menu from './Menu';
+import Modal from './Modal';
+import Categorias from './Categorias';
 const NavBar = () => {
-
     return (
         <nav className='navBarContenedor'>
             <div className='logito'>
@@ -28,13 +29,8 @@ const NavBar = () => {
                     </li>
                 </ol>
             </div>
-            <div className='categorias'>
-                <ol>
-                    <li><a href="">Mujeres</a></li>
-                    <li><a href="">Hombres</a></li>
-                    <li><a href="">Niños</a></li>
-                </ol>
-            </div>
+            <Categorias/>
+            
         </nav>
     )
 }
