@@ -1,31 +1,25 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 
-.navBarContenedor{
+.navbar{
     /* border: 1px solid red; */
-    display: grid;
-    grid-template-columns:repeat(3,1fr);
-    width: clamp(250px, 100vw, 1400px);
+    /* display: grid; */
+    /* grid-template-columns:repeat(3,1fr); */
+    /* width: clamp(250px, 100vw, 1400px); */
     transition: all ease-in-out 0.5s;
 }
 
-.logito{
-    grid-column: 2/3;
+.navbarLogito{
+    /* grid-column: 2/3; */
     align-self: center;
     justify-self: center;
     padding: 0.5em;
     font-family:Futura,Helvetica,Arial,sans-serif;
     h1{
         letter-spacing: 1rem;
-        font-size:clamp(1rem,8vw,2rem);
-    
+        font-size:clamp(1.5rem,10vw,2rem);
     }
 }
 
-.contenedorIconos{
+.navbarOpc{
     align-self: center;
     justify-self: center;
     padding: 0.2em;
@@ -38,28 +32,36 @@
         display: flex;
     }
     svg{
+        width: 1.5rem;
         fill: black;
-        width: clamp(1rem,4vw,1.5rem);
     }
     
 }
 
-
+.navbarCategorias{
+    /* border: 1px solid blue; */
+   
+    /* grid-column: 1/4; */
+    padding: 0.3em;
+    ol{
+        flex-direction: row;
+    }
+}
 
 @media (max-width:580px)
 {
-    .logito{
+    .navbarLogito{
         grid-column: 1/4;
         grid-row: 2;
     }
 
-    .contenedorIconos{
+    .navbarOpc{
         grid-column: 1/4;
         justify-self: self-end;
         
     }
 
-    .categorias{
-        display:none;
+    .navbarCategorias{
+        display:none;  
     }
 }
