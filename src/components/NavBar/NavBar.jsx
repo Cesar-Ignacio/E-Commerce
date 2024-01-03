@@ -5,14 +5,14 @@ import SearchWidget from "../SearchWidget/SearchWidget";
 import Menu from '../Menu/Menu';
 import Categorias from '../Categorias';
 const NavBar = () => {
-    
+
     return (
         <header className='flex justify-center'>
-            <nav className='navbar bg-green-200 grid grid-cols-3 w-full  xl:w-[1400px] xl:bg-blue-200' >
-                <div className='navbarLogito  col-start-2 '>
-                    <h1>ZETA</h1>
+            <nav className='grid grid-cols-3 w-full  xl:w-[1400px] ' >
+                <div className='col-span-4 row-start-2 justify-self-center  sm:row-start-1 sm:col-start-2 sm:col-span-1'>
+                    <h1 className='text-5xl tracking-[.30em] sm:text-4xl'>ZETA</h1>
                 </div>
-                <div className='navbarOpc  col-start-3'>
+                <div className='navbarOpc  col-span-4 self-center  justify-self-end sm:col-start-3'>
                     <ol>
                         <li>
                             <SearchWidget />
@@ -26,11 +26,13 @@ const NavBar = () => {
                             <CardWidget />
                         </li>
                         <li>
-                            <Menu />
+                            <div className='flex justify-center  bg-slate-300 sm:hidden '>
+                                <Menu />
+                            </div>
                         </li>
                     </ol>
                 </div>
-                <div className='navbarCategorias bg-red-700   col-start-1 col-end-4'>
+                <div className='navbarCategorias  bg-slate-300 col-start-1 col-end-4 hidden sm:block'>
                     <Categorias />
                 </div>
             </nav>

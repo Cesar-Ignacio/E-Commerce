@@ -3,7 +3,6 @@
 
 .btnMenu{
     z-index: 1;
-    display: none;
     background-color: transparent;
     border-style: none;
     border-radius: 0.2rem;
@@ -51,10 +50,4 @@
         }
     }
 
-}
-
-@media (max-width:580px) {
-    .btnMenu{
-        display: block;
-    }
 }
