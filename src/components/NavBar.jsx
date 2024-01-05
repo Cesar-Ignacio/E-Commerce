@@ -1,15 +1,15 @@
 import React from 'react'
-import CardWidget from '../CardWidget/CardWidget'
-import SearchWidget from "../SearchWidget/SearchWidget";
-import Menu from '../Menu/Menu';
-import Categorias from '../Categorias';
+import CardWidget from './CardWidget/CardWidget'
+import SearchWidget from "./SearchWidget";
+import Categorias from './Categorias';
+import Menu from './Menu';
 const NavBar = () => {
 
     return (
-        <header className='flex justify-center'>
-            <nav className='grid grid-cols-3 w-full  xl:w-[1400px] ' >
-                <div className='col-span-4 row-start-2 justify-self-center  sm:row-start-1 sm:col-start-2 sm:col-span-1'>
-                    <h1 className='text-5xl tracking-[.30em] sm:text-4xl'>ZETA</h1>
+        <header >
+            <nav className='grid grid-cols-3   container mx-auto' >
+                <div className='col-span-4 row-start-2 justify-self-center  sm:row-start-1  sm:col-start-1 sm:col-span-1  md:col-start-2 self-center'>
+                    <h1 className='text-4xl sm:text-3xl   tracking-[.30em]  font-bold '>ZETA</h1>
                 </div>
                 <div className='navbarOpc  col-span-4 self-center  justify-self-end sm:col-start-3 p-[0.2em] ' >
                     <ol className='flex gap-[2.5rem]'>
@@ -26,7 +26,7 @@ const NavBar = () => {
                         </li>
                         <li className='flex'>
                             <div className='flex justify-center rounded-[0.2rem] bg-slate-200 sm:hidden '>
-                                <Menu />
+                                <Menu/>
                             </div>
                         </li>
                     </ol>

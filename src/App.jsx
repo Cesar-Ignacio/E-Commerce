@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import ItemListConteiner from './components/ItemListConteiner'
-import NavBar from './components/NavBar/NavBar'
-
 import './App.css'
-
+import NavBar from './components/NavBar'
+import ItemListConteiner from './components/ItemListConteiner';
 function App() {
   const [count, setCount] = useState(0)
 

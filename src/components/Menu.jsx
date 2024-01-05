@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Categorias from '../Categorias';
+import Categorias from './Categorias';
 const Menu = () => {
 
     const [estado, setEstado] = useState(false);
