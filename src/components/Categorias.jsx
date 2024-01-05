@@ -4,13 +4,12 @@ const Categorias = () => {
 
     return (
         <>
-            <div>
-                <ol className='contenedorCategoria'  >
-                    <li><a href="" >Mujeres</a></li>
-                    <li><a href="">Hombres</a></li>
-                    <li><a href="">Niños</a></li>
-                </ol>
-            </div>
+            <ol className='flex sm:flex-row sm:h-auto justify-evenly flex-col items-center h-svh '>
+                <li className=" hover:font-bold hover:scale-[1.12] transition-all ease-in-out"><a href="#" >Mujeres</a></li>
+                <li className="hover:font-bold hover:scale-[1.12] transition-all ease-linear" ><a href="#">Hombres</a></li>
+                <li className="hover:font-bold hover:scale-[1.12] transition-all ease-in "><a href="#">Niños</a></li>
+            </ol>
+
         </>
     )
 }
