@@ -1,5 +1,5 @@
 import React from 'react'
-import CardWidget from './CardWidget/CardWidget'
+import CardWidget from './CardWidget'
 import SearchWidget from "./SearchWidget";
 import Categorias from './Categorias';
 import Menu from './Menu';
