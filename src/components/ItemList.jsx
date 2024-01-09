@@ -65,7 +65,7 @@ const ItemList = () => {
     return (
         <div >
             <h2>ItemList Catálogo </h2>
-            <div className='grid gap-1  bg-slate-100 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5'>
+            <div className='p-2 rounded-md grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 '>
                 {
                     (datos)&&(
                     datos.map(producto=>{
