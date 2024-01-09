@@ -11,42 +11,42 @@ const ItemList = () => {
             id: 101,
             nombre: "Televisor Samsung",
             descripcion: "El mejor televisor del mundo",
-            precio: 50,
+            precio: "510.00",
             url: "https://i.postimg.cc/zBB5KhqV/tv.webp"
         },
         {
             id: 102,
             nombre: "Parlante Ph",
             descripcion: "El mejor parlante del mundo",
-            precio: 80,
+            precio: "80.00",
             url: "https://i.postimg.cc/HksyS8Q4/parlante.webp"
         },
         {
             id: 102,
             nombre: "Parlante Ph",
             descripcion: "El mejor parlante del mundo, marca Samsung, con bluetton",
-            precio: 80,
+            precio: "80.00",
             url: "https://i.postimg.cc/HksyS8Q4/parlante.webp"
         },
         {
             id: 102,
             nombre: "Parlante Ph",
             descripcion: "El mejor parlante del mundo",
-            precio: 80,
+            precio: "80.00",
             url: "https://i.postimg.cc/HksyS8Q4/parlante.webp"
         },
         {
             id: 102,
             nombre: "Parlante Ph",
             descripcion: "El mejor parlante del mundo",
-            precio: 80,
+            precio: "80.00",
             url: "https://i.postimg.cc/HksyS8Q4/parlante.webp"
         },
         {
             id: 102,
             nombre: "Parlante Ph",
             descripcion: "El mejor parlante del mundo",
-            precio: 80,
+            precio: "50.00",
             url: "https://i.postimg.cc/HksyS8Q4/parlante.webp"
         }
     ]

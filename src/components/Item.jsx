@@ -1,18 +1,46 @@
 
 const Item = ({ producto }) => {
   return (
-    <div className='bg-white p-[0.5em] drop-shadow-[0_0px_8px_rgba(0,0,0,0.25)] rounded-md w-[100%] overflow-hidden flex flex-col  justify-between '>
-      <div className='bg-red-500 '>
-        <img src={producto.url} alt="imgProducto" />
+    <div className='bg-white p-[0.5em] group drop-shadow-[0_0px_8px_rgba(0,0,0,0.25)] rounded-md w-[100%] overflow-hidden flex flex-col  justify-between relative'>
+      <div className='bg-red-500 overflow-hidden ' >
+        <img src={producto.url} alt="imgProducto" className="group-hover:scale-[1.1] transition-transform duration-500 ease-in-out" />
       </div>
-      <div className="text-center flex flex-col ">
-        <strong  className="font-normal">{producto.nombre}</strong>
+      <div className="text-center flex  flex-col gap-1">
+        <strong className="font-normal">{producto.nombre}</strong>
         {/* <p className="text-start line-clamp-2 break-words"  >{producto.descripcion}</p> */}
-        <strong className="text-blue-600 " >${producto.precio}</strong>
+        <div className="flex  items-center justify-center gap-2  ">
+          <span className="text-gray-300 line-through text-sm	 ">$150.00</span>
+          <strong className="text-blue-600 " >${producto.precio}</strong>
+        </div>
       </div>
-      <div className="flex justify-between items-center">
+      {/* <div className="flex justify-between items-center">
         <strong>Stock</strong>
         <button className="bg-slate-800 text-white p-1 px-3 rounded-[5px]">Comprar</button>
+      </div> */}
+      <div className="absolute opacity-0 top-[20%] right-2 p-2 group-hover:opacity-100 transition-opacity ease-in-out duration-300   backdrop-blur-sm ">
+        <ul className="flex flex-col gap-2 ">
+          <li><a href="#" className="bg-slate-200 block p-2  rounded-[50%] hover:bg-blue-600 group/item" >
+            <svg xmlns="http://www.w3.org/2000/svg" className="group-hover/item:fill-white w-[16px] bi bi-bag-fill transition-colors" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
+            </svg>
+          </a>
+          </li>
+          <li><a href="#" className="bg-slate-200  p-2  block rounded-[50%] hover:bg-blue-600 group/item"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="group-hover/item:fill-white bi bi-suit-heart-fill w-[16px]" viewBox="0 0 16 16">
+            <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+          </svg></a></li>
+          <li>
+            <a href="#" className="bg-slate-200  block p-2  rounded-[50%] hover:bg-blue-600 group/item ">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="group-hover/item:fill-white bi bi-eye-fill w-[16px]" viewBox="0 0 16 16">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
+              </svg>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <div className="bg-amber-500 absolute p-1 py-0 rounded-md " >
+        <span className="text-white text-[12px] tracking-[1.5px]" >-20%</span>
       </div>
     </div >
   )
