@@ -2,8 +2,9 @@
 const Item = ({ producto }) => {
   return (
     <div className='bg-white p-[0.5em] group drop-shadow-[0_0px_8px_rgba(0,0,0,0.25)] rounded-md w-[100%] overflow-hidden flex flex-col  justify-between relative'>
-      <div className='bg-red-500 overflow-hidden ' >
-        <img src={producto.url} alt="imgProducto" className="group-hover:scale-[1.1] transition-transform duration-500 ease-in-out" />
+      <div className='relative overflow-hidden xl:p-3' >
+        <img src={producto.url} alt="imgProducto" className=" sm:group-hover:scale-[1]   transition-opacity duration-1000 ease-in-out group-hover:opacity-0" />
+        <img src="https://http2.mlstatic.com/D_NQ_NP_780630-MLU73290316833_122023-O.webp" alt="" className=" absolute top-0 left-0 scale-[0]  opacity-0 group-hover:opacity-100 group-hover:scale-[1] xl:p-3  transition-opacity duration-1000 ease-in-out  " /> 
       </div>
       <div className="text-center flex  flex-col gap-1">
         <strong className="font-normal">{producto.nombre}</strong>
@@ -17,8 +18,8 @@ const Item = ({ producto }) => {
         <strong>Stock</strong>
         <button className="bg-slate-800 text-white p-1 px-3 rounded-[5px]">Comprar</button>
       </div> */}
-      <div className="absolute opacity-0 top-[20%] right-2 p-2 group-hover:opacity-100 transition-opacity ease-in-out duration-300   backdrop-blur-sm ">
-        <ul className="flex flex-col gap-2 ">
+      <div className="absolute opacity-0  right-[-20px] p-2 group-hover:opacity-100 group-hover:right-2 transition-all ease-in-out duration-300 backdrop-blur-sm  xl:top-[20%] ">
+        <ul className="flex flex-col gap-0 transition-all duration-300 ease-in-out group-hover:gap-5  ">
           <li><a href="#" className="bg-slate-200 block p-2  rounded-[50%] hover:bg-blue-600 group/item" >
             <svg xmlns="http://www.w3.org/2000/svg" className="group-hover/item:fill-white w-[16px] bi bi-bag-fill transition-colors" fill="currentColor" viewBox="0 0 16 16">
               <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
@@ -36,7 +37,6 @@ const Item = ({ producto }) => {
               </svg>
             </a>
           </li>
-
         </ul>
       </div>
       <div className="bg-amber-500 absolute p-1 py-0 rounded-md " >
