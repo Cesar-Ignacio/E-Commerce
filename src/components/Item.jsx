@@ -14,10 +14,6 @@ const Item = ({ producto }) => {
           <strong className="text-blue-600 " >${producto.precio}</strong>
         </div>
       </div>
-      {/* <div className="flex justify-between items-center">
-        <strong>Stock</strong>
-        <button className="bg-slate-800 text-white p-1 px-3 rounded-[5px]">Comprar</button>
-      </div> */}
       <div className="absolute opacity-0  right-[-20px] p-2 group-hover:opacity-100 group-hover:right-2 transition-all ease-in-out duration-300 backdrop-blur-sm  xl:top-[20%] ">
         <ul className="flex flex-col gap-0 transition-all duration-300 ease-in-out group-hover:gap-5  ">
           <li><a href="#" className="bg-slate-200 block p-2  rounded-[50%] hover:bg-blue-600 group/item" >

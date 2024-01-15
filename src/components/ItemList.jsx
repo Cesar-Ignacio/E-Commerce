@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Item from './Item'
 
-const ItemList = () => {
 
+const ItemList = () => {
 
     const [datos, setDatos] = useState();
 
@@ -67,10 +67,10 @@ const ItemList = () => {
             <h2>ItemList Catálogo </h2>
             <div className='p-2 rounded-md grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 '>
                 {
-                    (datos)&&(
-                    datos.map(producto=>{
-                     return <Item key={producto.id} producto={producto}/>
-                    })
+                    (datos) && (
+                        datos.map(producto => (
+                            <Item key={producto.id} producto={producto} />
+                        ))
                     )
                 }
             </div>
