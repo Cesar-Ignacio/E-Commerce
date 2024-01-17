@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
 
@@ -47,6 +48,7 @@ const ItemDetailContainer = () => {
         <div className='container mx-auto'>
             <h3>ItemDetailContainer</h3>
             <p>{ (datos.descripcion)||"No se encontro el producto"}</p>
+            <ItemDetail producto={datos}/>
         </div>
     )
 }
