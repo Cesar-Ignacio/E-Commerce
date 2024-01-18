@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom"
 
 const Item = ({ producto }) => {
   return (
     <div className='bg-white p-[0.5em] group drop-shadow-[0_0px_8px_rgba(0,0,0,0.25)] rounded-md w-[100%] overflow-hidden flex flex-col  justify-between relative'>
       <div className='relative overflow-hidden xl:p-3' >
-        <img src={producto.url} alt="imgProducto" className=" sm:group-hover:scale-[1]   transition-opacity duration-1000 ease-in-out group-hover:opacity-0" />
-        <img src="https://http2.mlstatic.com/D_NQ_NP_780630-MLU73290316833_122023-O.webp" alt="" className=" absolute top-0 left-0 scale-[0]  opacity-0 group-hover:opacity-100 group-hover:scale-[1] xl:p-3  transition-opacity duration-1000 ease-in-out  " /> 
+        <img src={producto.url} alt="imgProducto" className=" sm:group-hover:scale-[1]   transition-opacity duration-1000 ease-in-out " />
+        {/* <img src="https://http2.mlstatic.com/D_NQ_NP_780630-MLU73290316833_122023-O.webp" alt="" className=" absolute top-0 left-0 scale-[0]  opacity-0 group-hover:opacity-100 group-hover:scale-[1] xl:p-3  transition-opacity duration-1000 ease-in-out  " />  */}
       </div>
       <div className="text-center flex  flex-col gap-1">
         <strong className="font-normal">{producto.nombre}</strong>
@@ -26,17 +27,17 @@ const Item = ({ producto }) => {
             <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
           </svg></a></li>
           <li>
-            <a href="#" className="bg-slate-200  block p-2  rounded-[50%] hover:bg-blue-600 group/item ">
+            <Link to={`/detail/${producto.id}`} className="bg-slate-200  block p-2  rounded-[50%] hover:bg-blue-600 group/item ">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="group-hover/item:fill-white bi bi-eye-fill w-[16px]" viewBox="0 0 16 16">
                 <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
                 <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
               </svg>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
       <div className="bg-amber-500 absolute p-1 py-0 rounded-md " >
-        <span className="text-white text-[12px] tracking-[1.5px]" >-20%</span>
+        <span className="text-white text-[12px] tracking-[1.5px]" >{producto.descuento&& (`-${producto.descuento}%`) }</span>
       </div>
     </div >
   )

@@ -3,13 +3,14 @@ import CardWidget from './CardWidget'
 import SearchWidget from "./SearchWidget";
 import Categorias from './Categorias';
 import Menu from './Menu';
+import { Link } from 'react-router-dom';
 const NavBar = () => {
 
     return (
         <header >
             <nav className='grid grid-cols-3   container mx-auto' >
                 <div className='col-span-4 row-start-2 justify-self-center  sm:row-start-1  sm:col-start-1 sm:col-span-1  md:col-start-2 self-center'>
-                    <h1 className='text-4xl sm:text-3xl   tracking-[.30em]  font-bold '>ZETA</h1>
+                    <Link to={"/"}><h1 className='text-4xl sm:text-3xl   tracking-[.30em]  font-bold '>ZETA</h1></Link> 
                 </div>
                 <div className='navbarOpc  col-span-4 self-center  justify-self-end sm:col-start-3 p-[0.2em] ' >
                     <ol className='flex gap-[2.5rem]'>

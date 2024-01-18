@@ -4,7 +4,7 @@ const ItemDetail = ({ producto }) => {
   return (
     <div className='bg-gradient-to-b sm:bg-gradient-to-r from-slate-800  gap-4 flex flex-col items-center justify-center  sm:rounded-[1.3rem] sm:flex-row '>
       <div className='xl:scale-110 w-[80%] h-[20rem] md:w-[50%] md:h-[30rem]'>
-        <img src='https://i.postimg.cc/Qt6Wg69y/klipartz-com-2.png' className='w-[100%] h-[100%] object-contain' alt="img" />
+        <img src={producto.url} className='w-[100%] h-[100%] object-contain' alt="img" />
       </div>
       <div className=' w-[80%] md:w-[50%]'>
         <strong className='text-[2rem] md:text-[5rem] text-rose-800 '>{producto.nombre}</strong>
