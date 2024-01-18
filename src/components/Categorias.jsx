@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const Categorias = () => {
 
@@ -5,9 +6,9 @@ const Categorias = () => {
     return (
         <>
             <ol className='flex sm:flex-row sm:h-auto justify-evenly flex-col items-center h-svh '>
-                <li className=" hover:underline"><a href="#" >Mujeres</a></li>
-                <li className="hover:underline " ><a href="#">Hombres</a></li>
-                <li className="hover:underline "><a href="#">Niños</a></li>
+                <li className=" hover:underline"><Link to="categoria/Parlantes" >Parlantes</Link></li>
+                <li className="hover:underline " ><Link to="categoria/Auriculares">Auriculares</Link></li>
+                <li className="hover:underline "><Link to="categoria/Televisores">Televisores</Link></li>
             </ol>
 
         </>

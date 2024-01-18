@@ -1,14 +1,21 @@
-import { useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar'
 import ItemListConteiner from './components/ItemListConteiner';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import { Route, Routes, } from 'react-router-dom';
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
       <NavBar/>
-      <ItemListConteiner greenting="ItemListConteiner"/>
+
+      <Routes>
+          <Route path='/' element={<ItemListConteiner greenting="ItemListConteiner"/>} />
+          <Route path='/categoria/:categoria' element={<ItemListConteiner greenting="ItemListConteiner"/>}/>
+          <Route path='/detail/:idProducto' element={<ItemDetailContainer/>}/>
+      </Routes>
+
+      
     </>
   )
 }
