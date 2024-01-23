@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom"
 
 const Item = ({ producto }) => {
+  
+
+  const descuento=(100-producto.descuento)/100;
+  
+
   return (
-    <div className='bg-white p-[0.5em] group drop-shadow-[0_0px_8px_rgba(0,0,0,0.25)] rounded-md w-[100%] overflow-hidden flex flex-col  justify-between relative'>
+    <div className=' bg-white p-[0.5em] group drop-shadow-[0_0px_8px_rgba(0,0,0,0.25)] rounded-md w-[100%] overflow-hidden flex flex-col  justify-between relative'>
       <div className='relative overflow-hidden xl:p-3' >
         <img src={producto.url} alt="imgProducto" className=" sm:group-hover:scale-[1]   transition-opacity duration-1000 ease-in-out " />
         {/* <img src="https://http2.mlstatic.com/D_NQ_NP_780630-MLU73290316833_122023-O.webp" alt="" className=" absolute top-0 left-0 scale-[0]  opacity-0 group-hover:opacity-100 group-hover:scale-[1] xl:p-3  transition-opacity duration-1000 ease-in-out  " />  */}
@@ -11,8 +16,8 @@ const Item = ({ producto }) => {
         <strong className="font-normal">{producto.nombre}</strong>
         {/* <p className="text-start line-clamp-2 break-words"  >{producto.descripcion}</p> */}
         <div className="flex  items-center justify-center gap-2  ">
-          <span className="text-gray-300 line-through text-sm	 ">$150.00</span>
-          <strong className="text-blue-600 " >${producto.precio}</strong>
+          <span className="text-gray-300 line-through text-sm	 ">{producto.descuento&&(`$${producto.precio}`)}</span>
+          <strong className="text-blue-600 " >{producto.descuento?(`$${producto.precio*(descuento)}`):(`$${producto.precio}`)}</strong>
         </div>
       </div>
       <div className="absolute opacity-0  right-[-20px] p-2 group-hover:opacity-100 group-hover:right-2 transition-all ease-in-out duration-300 backdrop-blur-sm  xl:top-[20%] ">
