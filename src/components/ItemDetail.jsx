@@ -13,7 +13,7 @@ const ItemDetail = ({ producto }) => {
         <strong className='text-[2rem] md:text-[5rem] text-white'>{producto.nombre}</strong>
         <p>{producto.descripcion} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi quibusdam quis accusantium distinctio. Est, corrupti.</p>
         <strong className='text-[1.5rem]'>${producto.precio}</strong>
-        <Contador/>
+        <Contador stock={producto.stock}/>
         <div className='mt-2 flex gap-2'>
           <button className='  bg-[#2a3445] p-2 md:px-8 md:py-3 rounded-xl  text-white w-fit h-fit'>BUY NOW</button>
           <button className='bg-[#2a3445] p-2 md:px-8 md:py-3 rounded-xl  text-white w-fit h-fit'>ADD TO CARD</button>
