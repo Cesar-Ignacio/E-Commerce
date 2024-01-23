@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
 
-    const [producto, setProducto] = useState({});
+    const [producto, setProducto] = useState();
 
     const {idProducto}=useParams();
 
@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
     return (
         <div className='container mx-auto mt-4'>
             <h3>ItemDetailContainer </h3>
-            <ItemDetail producto={producto} />
+            {producto&&<ItemDetail producto={producto} />}
         </div>
     )
 }
