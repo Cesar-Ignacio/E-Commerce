@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Contador from './Contador'
 import { Link } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 
 const ItemDetail = ({ producto }) => {
 
+  const {agregarProducto}=useContext(CartContext)
   const [cantidad, setCantidad] = useState(1);
 
   const detectarCantidad = (nuevaCantidad) => {
@@ -11,9 +13,8 @@ const ItemDetail = ({ producto }) => {
   }
 
   const agregarCarrito = () => {
-    console.log({ ...producto, cantidad })
+    agregarProducto({ ...producto, cantidad });
   }
-
 
   return (
     <div className='bg-gradient-to-b from-stone-900 bg-amber-50 p-2 gap-4 flex flex-col items-center justify-center  sm:rounded-[1.3rem] sm:flex-row  '>
