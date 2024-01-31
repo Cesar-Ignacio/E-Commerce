@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom"
+import { obtenerDescuento } from "../utilities/utilidades"
 
 const Item = ({ producto }) => {
   
 
-  const descuento=(100-producto.descuento)/100;
-  
+  const {estado,precio}=obtenerDescuento(producto.precio,producto.descuento);
+
+
 
   return (
     <div className=' bg-white p-[0.5em] group drop-shadow-[0_0px_8px_rgba(0,0,0,0.25)] rounded-md w-[100%] overflow-hidden flex flex-col  justify-between relative'>
@@ -16,8 +18,9 @@ const Item = ({ producto }) => {
         <strong className="font-normal">{producto.nombre}</strong>
         {/* <p className="text-start line-clamp-2 break-words"  >{producto.descripcion}</p> */}
         <div className="flex  items-center justify-center gap-2  ">
-          <span className="text-gray-300 line-through text-sm	 ">{producto.descuento&&(`$${producto.precio}`)}</span>
-          <strong className="text-blue-600 " >{producto.descuento?(`$${producto.precio*(descuento)}`):(`$${producto.precio}`)}</strong>
+          <span className="text-gray-300 line-through text-sm	 ">{estado&&(`$${producto.precio}`)}</span>
+          {/* <strong className="text-blue-600 " >{producto.descuento?(`$${producto.precio*(descuento)}`):(`$${producto.precio}`)}</strong> */}
+          <strong className="text-blue-600 " >${precio}</strong>
         </div>
       </div>
       <div className="absolute opacity-0  right-[-20px] p-2 group-hover:opacity-100 group-hover:right-2 transition-all ease-in-out duration-300 backdrop-blur-sm  xl:top-[20%] ">
@@ -42,7 +45,7 @@ const Item = ({ producto }) => {
         </ul>
       </div>
       <div className="bg-amber-500 absolute p-1 py-0 rounded-md " >
-        <span className="text-white text-[12px] tracking-[1.5px]" >{producto.descuento&& (`-${producto.descuento}%`) }</span>
+        <span className="text-white text-[12px] tracking-[1.5px]" >{(!producto.descuento)||(`-${producto.descuento}%`)}</span>
       </div>
     </div >
   )

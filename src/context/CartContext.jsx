@@ -1,13 +1,11 @@
 import { createContext, useState } from "react";
 
-
 const CartContext=createContext();
 
 const CartProvider=({children})=>{
 
-
+    
     const [carrito,setCarrito]=useState([]);
-    const [datos,setDatos]=useState({})
 
     const agregarProducto=(producto)=>{
         setCarrito([...carrito,producto])
