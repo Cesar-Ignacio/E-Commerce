@@ -9,16 +9,15 @@ const ItemDetailContainer = () => {
 
     const [producto, setProducto] = useState();
 
-    const {idProducto}=useParams();
+    const { idProducto } = useParams();
 
 
     useEffect(() => {
-
         // productoPorId(idProducto).then(data => setProducto(data)).catch(error => console.log(error));
 
-    const docRef =doc(db,"productos",idProducto);
-    getDoc(docRef)
-    .then(results=>setProducto({id:results.id,...results.data()}))        
+        const docRef = doc(db, "productos", idProducto);
+        getDoc(docRef)
+            .then(results => setProducto({ id: results.id, ...results.data() }))
 
     }, [])
 
@@ -26,7 +25,7 @@ const ItemDetailContainer = () => {
     return (
         <div className='container mx-auto mt-4'>
             <h3>ItemDetailContainer </h3>
-            {producto&&<ItemDetail producto={producto} />}
+            {producto && <ItemDetail producto={producto} />}
         </div>
     )
 }

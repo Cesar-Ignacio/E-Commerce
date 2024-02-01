@@ -11,6 +11,7 @@ const CartProvider=({children})=>{
         setCarrito([...carrito,producto])
     }
 
+   
 
     const obtenerTotalYCantidad=()=>
     {
