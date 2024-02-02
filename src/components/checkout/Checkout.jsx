@@ -5,7 +5,6 @@ import db from '../../dataBase/dataBase'
 
 
 const Checkout = () => {
-
     const [datos, setDatos] = useState({
         nombre: '',
         telefono: '',
