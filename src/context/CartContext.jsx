@@ -4,14 +4,12 @@ const CartContext=createContext();
 
 const CartProvider=({children})=>{
 
-    
+
     const [carrito,setCarrito]=useState([]);
 
     const agregarProducto=(producto)=>{
         setCarrito([...carrito,producto])
     }
-
-   
 
     const obtenerTotalYCantidad=()=>
     {
@@ -24,9 +22,17 @@ const CartProvider=({children})=>{
           }, {})
     }
 
+    const eliminarProductoId=(idProducto)=>{
+      setCarrito([...carrito.filter(pro=>pro.id!=idProducto)]);
+    }
+
+    const vaciarCarrito=()=>{
+        setCarrito([]);
+    }
+
     return (
 
-        <CartContext.Provider value={{carrito,agregarProducto,obtenerTotalYCantidad}}>
+        <CartContext.Provider value={{carrito,agregarProducto,obtenerTotalYCantidad,eliminarProductoId,vaciarCarrito}}>
             {children}
         </CartContext.Provider>
     )
