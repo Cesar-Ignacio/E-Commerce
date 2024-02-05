@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import db from '../dataBase/dataBase'
 
-const ItemListConteiner = ({ greenting }) => {
+const ItemListConteiner = () => {
 
   const [datos, setDatos] = useState([])
 
@@ -31,7 +31,7 @@ const ItemListConteiner = ({ greenting }) => {
 
   return (
     <div className='container mx-auto'>
-      <h2>{greenting}</h2>
+      
       <ItemList productos={datos} />
     </div>
   )

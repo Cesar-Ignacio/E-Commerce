@@ -23,8 +23,7 @@ const ItemDetailContainer = () => {
 
 
     return (
-        <div className='container mx-auto mt-4'>
-            <h3>ItemDetailContainer </h3>
+        <div className='container mx-auto '>
             {producto && <ItemDetail producto={producto} />}
         </div>
     )

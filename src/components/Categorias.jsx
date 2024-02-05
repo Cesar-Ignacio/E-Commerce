@@ -6,10 +6,10 @@ const Categorias = () => {
     return (
         <>
             <ol className='flex sm:flex-row sm:h-auto justify-evenly flex-col items-center h-svh '>
-                <li className=" hover:underline"><Link to="categoria/Parlantes" >Parlantes</Link></li>
-                <li className="hover:underline " ><Link to="categoria/Auriculares">Auriculares</Link></li>
-                <li className="hover:underline "><Link to="categoria/VideoJuegos">Video Juegos</Link></li>
-                <li className="hover:underline "><Link to="categoria/Otros">Otros</Link></li> 
+                <li className="text-bunker-400 hover:text-bunker-300 dark:text-bunker-100"><Link to="categoria/Parlantes" >PARLANTE</Link></li>
+                <li className="text-bunker-400 hover:text-bunker-300 dark:text-bunker-100" ><Link to="categoria/Auriculares">AURICULARES</Link></li>
+                <li className=" text-bunker-400 hover:text-bunker-300 dark:text-bunker-100"><Link to="categoria/VideoJuegos">VIDEO JUEGOS</Link></li>
+                <li className="text-bunker-400 hover:text-bunker-300 dark:text-bunker-100 "><Link to="categoria/Otros">OTROS</Link></li> 
             </ol>
 
         </>

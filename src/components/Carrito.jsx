@@ -3,14 +3,14 @@ import { CartContext } from '../context/CartContext'
 
 const Carrito = () => {
 
-  const { carrito, obtenerTotalYCantidad,eliminarProductoId,vaciarCarrito } = useContext(CartContext);
+  const { carrito, obtenerTotalYCantidad, eliminarProductoId, vaciarCarrito } = useContext(CartContext);
 
   const { total, cantidad } = obtenerTotalYCantidad();
 
 
 
   return (
-    <div className='container mx-auto mt-[3rem] grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-5'>
+    <div className='container mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-5'>
 
       <div className='flex items-center gap-4 bg-red-50 p-2 rounded-lg drop-shadow-[0_0px_8px_rgba(0,0,0,0.25)] dark:drop-shadow-[0_0px_8px_white] col-span-1 '>
         <div className='p-1 w-[8rem] h-[8rem] overflow-hidden'>
@@ -41,7 +41,7 @@ const Carrito = () => {
         </div>
         <div className='flex flex-col gap-2 '>
           <button className='bg-slate-600 px-4 py-2 text-white rounded-lg  hover:bg-slate-500 transition-colors duration-300 ease-in-out'>Finalizar Comprar</button>
-          <button onClick={vaciarCarrito}  className='bg-slate-400 px-4 py-2 text-gray-900 rounded-lg hover:bg-slate-300 hover:text-red-500 transition-colors duration-300 ease-in-out' >Vaciar Carrito</button>
+          <button onClick={vaciarCarrito} className='bg-slate-400 px-4 py-2 text-gray-900 rounded-lg hover:bg-slate-300 hover:text-red-500 transition-colors duration-300 ease-in-out' >Vaciar Carrito</button>
         </div>
       </div>
 
@@ -65,7 +65,7 @@ const Carrito = () => {
                 <span>${producto.precio}</span>
                 <span>{producto.cantidad}</span>
               </div>
-              <button onClick={()=>eliminarProductoId(producto.id)}  className='opacity-0 text-slate-500 group-hover/pro:opacity-100 ml-3  bg-slate-100 px-2 rounded-md py-1 transition-all duration-300 ease-in-out flex items-center'>Eliminar <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-x w-[1rem] fill-red-400 scale-110 hover:scale-150  " viewBox="0 0 16 16">
+              <button onClick={() => eliminarProductoId(producto.id)} className='opacity-0 text-slate-500 group-hover/pro:opacity-100 ml-3  bg-slate-100 px-2 rounded-md py-1 transition-all duration-300 ease-in-out flex items-center'>Eliminar <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-x w-[1rem] fill-red-400 scale-110 hover:scale-150  " viewBox="0 0 16 16">
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
               </svg></button>
             </div>
