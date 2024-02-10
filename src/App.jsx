@@ -7,23 +7,25 @@ import Carrito from './components/Carrito';
 import { CartProvider } from './context/CartContext';
 import Checkout from './components/checkout/Checkout';
 import Login from './components/Usuario/Login';
+import { UserProvider } from './context/UserContext';
 function App() {
 
   return (
     <>
-
-      <CartProvider>
+      <UserProvider>
+        <CartProvider>
           <NavBar />
           <Routes>
-            <Route path='/' element={<ItemListConteiner greenting="ItemListConteiner" />} />
+            <Route path='/' element={<ItemListConteiner />} />
             <Route path='/categoria/:categoria' element={<ItemListConteiner />} />
             <Route path='/detail/:idProducto' element={<ItemDetailContainer />} />
-            <Route path='/login' element={<Login/>}/>
+            <Route path='/login' element={<Login />} />
             <Route path='/carrito' element={<Carrito />} />
             <Route path='/checkout' element={<Checkout />} />
             <Route path='*' element={<p>Pagina 404</p>} />
           </Routes>
-      </CartProvider>
+        </CartProvider>
+      </UserProvider>
 
     </>
   )

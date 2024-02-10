@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { addDoc, collection } from 'firebase/firestore'
-import db from '../../dataBase/dataBase'
+import { db } from '../../dataBase/dataBase'
 
 
 const Checkout = () => {
@@ -22,7 +22,7 @@ const Checkout = () => {
     }
 
     const enviarDatos = (e) => {
-       
+
         e.preventDefault();
 
         const orden = {
@@ -31,9 +31,9 @@ const Checkout = () => {
             total
         }
 
-        const ordenRef=collection(db,"ordenes");
-        addDoc(ordenRef,orden)
-        .then(res=>console.log(res));
+        const ordenRef = collection(db, "ordenes");
+        addDoc(ordenRef, orden)
+            .then(res => console.log(res));
 
 
     }

@@ -3,7 +3,7 @@ import ItemDetail from './ItemDetail';
 import { productoPorId } from '../utilities/data';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
-import db from '../dataBase/dataBase';
+import { db } from '../dataBase/dataBase';
 
 const ItemDetailContainer = () => {
 

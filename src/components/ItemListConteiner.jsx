@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
 import { collection, getDocs, query, where } from 'firebase/firestore'
-import db from '../dataBase/dataBase'
+import { db } from '../dataBase/dataBase'
 import { MagicMotion } from 'react-magic-motion'
 
 const ItemListConteiner = () => {
@@ -11,10 +11,9 @@ const ItemListConteiner = () => {
 
   const { categoria } = useParams();
 
+  
 
   useEffect(() => {
-
-    // recuperarListaDatos().then(data => { setDatos(data.filter(pro => pro.categoria.includes(categoria || ""))) });
 
     const q = query(collection(db, "productos"), categoria && (where("categoria", ("=="), categoria || "")))
     getDocs(q)
