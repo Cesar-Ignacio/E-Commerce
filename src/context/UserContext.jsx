@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useState } from "react";
 import { auth } from "../dataBase/dataBase";
 
@@ -14,16 +14,21 @@ const UserProvider = ({ children }) => {
 
     const registrar = (email, password) => createUserWithEmailAndPassword(auth, email, password)
 
-    onAuthStateChanged(auth, user => {
-        
-        console.log("Camnio el usuairop",user)
-        setUsuario(user)
+    const cerrarSesion=()=>signOut(auth);
 
+
+    const loginGoogle=()=>{
+        const gp=new GoogleAuthProvider();
+        return signInWithPopup(auth,gp);
+    }
+
+    onAuthStateChanged(auth, user => {
+        setUsuario(user)
     })
 
 
     return (
-        <UserContext.Provider value={{ login, registrar, usuario }}>
+        <UserContext.Provider value={{ login, registrar, usuario,cerrarSesion,loginGoogle }}>
             {children}
         </UserContext.Provider>
 

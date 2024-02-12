@@ -32,11 +32,11 @@ const NavBar = () => {
                         <li className='flex'>
                             <SearchWidget />
                         </li>
-                        <Link to={"login"} className='flex dark:fill-bunker-50'>
+                        <Link to={usuario?.email?(`/perfil/${usuario?.uid}`):("/login")} className='flex dark:fill-bunker-50'>
 
                             {usuario?.email ? (
                                 <WrapItem>
-                                    <Avatar name={usuario.email} size='sm' src='' />
+                                    <Avatar name={usuario.email} size='sm' src={usuario?.photoURL} />
                                 </WrapItem>
                             ) : (
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-[1.5rem] bi bi-person" viewBox="0 0 16 16">
