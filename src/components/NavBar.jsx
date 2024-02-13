@@ -18,6 +18,7 @@ const NavBar = () => {
     return (
         <header className='border-b-2 border-bunker-400 mb-[2rem]'>
             <nav className='grid grid-cols-3  container mx-auto dark:text-bunker-100' >
+                {/* LOGO */}
                 <div className='col-span-4 row-start-2 justify-self-center  sm:row-start-1  sm:col-start-1 sm:col-span-1  lg:col-start-2 self-center'>
                     <Link to={"/"}>
                         <svg height="100" width="300">
@@ -27,6 +28,7 @@ const NavBar = () => {
                         </svg>
                     </Link>
                 </div>
+                {/* NAVEGADORES */}
                 <div className=' col-span-4 self-center justify-self-end sm:col-start-3 p-[0.2em] ' >
                     <ol className='flex gap-[2.5rem] items-center'>
                         <li className='flex'>
@@ -49,8 +51,8 @@ const NavBar = () => {
                             <CardWidget />
                         </Link>
                         <li className='flex '>
-                            <button onClick={cambiarTema} >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-brightness-low-fill w-[1.4rem]" viewBox="0 0 16 16">
+                            <button onClick={cambiarTema}  >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-brightness-low-fill w-[1.4rem] hover:rotate-180 transition-transform duration-300 ease-in-out'" viewBox="0 0 16 16">
                                     <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707" />
                                 </svg>
                             </button>
@@ -62,6 +64,7 @@ const NavBar = () => {
                         </li>
                     </ol>
                 </div>
+                {/* CATEGORÍAS */}
                 <div className='col-start-1 col-end-4 hidden sm:block lg:w-[50%] container mx-auto pt-6  pb-3 text-[0.7rem] font-bold tracking-[2px] '>
                     <Categorias />
                 </div>
