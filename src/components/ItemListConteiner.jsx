@@ -5,13 +5,13 @@ import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../dataBase/dataBase'
 import { MagicMotion } from 'react-magic-motion'
 
+
 const ItemListConteiner = () => {
 
   const [datos, setDatos] = useState([])
 
   const { categoria } = useParams();
 
-  
 
   useEffect(() => {
 
@@ -24,16 +24,17 @@ const ItemListConteiner = () => {
         setDatos(productos);
       })
 
-
   }, [categoria])
 
 
   return (
-    <MagicMotion>
-      <div className='container mx-auto'>
-        <ItemList productos={datos} />
-      </div>
-    </MagicMotion>
+    <>
+      <MagicMotion>
+        <div className='container mx-auto'>
+          <ItemList productos={datos} />
+        </div>
+      </MagicMotion>
+    </>
   )
 }
 

@@ -13,6 +13,7 @@ function App() {
 
   return (
     <>
+      
       <UserProvider>
         <CartProvider>
           <NavBar />
