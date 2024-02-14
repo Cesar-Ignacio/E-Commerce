@@ -4,6 +4,7 @@ import { MagicMotion } from 'react-magic-motion';
 import { Avatar } from '@chakra-ui/react';
 import { UserContext } from '../context/UserContext';
 import { Link } from 'react-router-dom';
+import carritoVacio from '../assets/carritoVacio.svg'
 
 const Carrito = () => {
 
@@ -54,7 +55,6 @@ const Carrito = () => {
 
           {
             cantidad ? (carrito.map(producto => (
-
               <div key={producto.id} className='group/pro bg-stone-50 p-1 flex items-center gap-2'>
                 <div className='w-[3rem] h-[3rem] rounded-[50%] overflow-hidden'>
                   <img className='object-cover w-[100%] h-[100%]' src={producto.url} alt="" />
@@ -64,17 +64,23 @@ const Carrito = () => {
                   <span>${producto.precio}</span>
                   <span>{producto.cantidad}</span>
                 </div>
-                <button onClick={() => eliminarProductoId(producto.id)} className='opacity-0 text-slate-500 group-hover/pro:opacity-100 ml-3  bg-slate-100 px-2 rounded-md py-1 transition-all duration-300 ease-in-out flex items-center'>Eliminar <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-x w-[1rem] fill-red-400 scale-110 hover:scale-150  " viewBox="0 0 16 16">
-                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                </svg></button>
+                <button onClick={() => eliminarProductoId(producto.id)} className='ml-3'>
+                  <lord-icon
+                    src="https://cdn.lordicon.com/dykoqszm.json"
+                    trigger="hover"
+                    stroke="bold"
+                    colors="primary:#121331,secondary:#16a9c7"
+                    style={{ width: '2rem', height: '2rem' }}>
+                  </lord-icon>
+                </button>
               </div>
-
             ))) : (
               <div className=' h-[100%] flex justify-center items-center '>
-                <strong className='text-slate-400 text-[2rem]'>Carrito vacio</strong>
+                <img className='w-[20rem]' src={carritoVacio } alt="img" />
               </div>
             )
           }
+
         </div>
 
         <div className='flex gap-2 flex-col drop-shadow-[0_0px_8px_rgba(0,0,0,0.25)] dark:drop-shadow-[0_0px_5px_white] bg-slate-50 p-5 rounded-2xl  sm:col-span-2 '>
@@ -98,6 +104,7 @@ const Carrito = () => {
           </div>
         </div>
       </MagicMotion>
+
 
     </div>
 

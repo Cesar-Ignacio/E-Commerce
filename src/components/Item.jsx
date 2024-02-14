@@ -27,7 +27,7 @@ const Item = ({ producto }) => {
 
       <div className="absolute opacity-0  right-[-20px] p-2 group-hover:opacity-100 group-hover:right-2 transition-all ease-in-out duration-300 backdrop-blur-sm  xl:top-[20%] ">
         <ul className="flex flex-col gap-0 transition-all duration-300 ease-in-out group-hover:gap-5  ">
-          <li><Link to={"/carrito"} onClick={() => agregarProducto({ ...producto, cantidad: 1, precio })} className="bg-slate-200 block p-2  rounded-[50%] hover:bg-blue-600 group/item" >
+          <li><Link to={"/carrito"} onClick={()=>agregarProducto({ ...producto, precio , cantidad: 1 })} className="bg-slate-200 block p-2  rounded-[50%] hover:bg-blue-600 group/item" >
             <svg xmlns="http://www.w3.org/2000/svg" className="group-hover/item:fill-white w-[16px] bi bi-bag-fill transition-colors" fill="currentColor" viewBox="0 0 16 16">
               <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
             </svg>

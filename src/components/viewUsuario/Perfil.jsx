@@ -36,7 +36,7 @@ const Perfil = () => {
                             <span className=' text-bunker-600'>Perfil de usuario</span>
                         </div>
                         <div className='flex gap-4 items-center justify-evenly '>
-                            <div  className='flex flex-col gap-2'>
+                            <div className='flex flex-col gap-2'>
                                 <Avatar size='xl' name={usuario?.email} src={usuario?.photoURL} />
                                 <button onClick={handleClickCerrarSesion} className='border-bunker-300 tracking-[1px] text-bunker-500 bg-bunker-100 hover:bg-bunker-900 hover:text-bunker-50 border-[1px]  p-2 rounded-md transition-colors duration-300 ease-in-out'>Sign Out</button>
                             </div>
@@ -71,13 +71,15 @@ const Perfil = () => {
                                 <span>1</span>
                             </div>
                             <Tooltip hasArrow label='Remover producto' bg='gray.300' color='black'>
-                                <button className='ml-3  px-2 rounded-md py-1  flex items-center'>
+                                <button className='ml-3'>
                                     <lord-icon
-                                        src="https://cdn.lordicon.com/uxddtfbd.json"
+                                        src="https://cdn.lordicon.com/dykoqszm.json"
                                         trigger="hover"
-                                        style={{ width: '2rem', height: '2rem' }}
-                                    >
-                                    </lord-icon></button>
+                                        stroke="bold"
+                                        colors="primary:#121331,secondary:#16a9c7"
+                                        style={{width:'2rem',height:'2rem'}}>
+                                    </lord-icon>
+                                </button>
                             </Tooltip>
                         </div>
                     </div>
@@ -86,17 +88,20 @@ const Perfil = () => {
                         <div className='flex items-center gap-2'>
                             <div className='bg-slate-800 w-fit flex p-1 rounded-lg'>
                                 <lord-icon
-                                    src="https://cdn.lordicon.com/ulnswmkk.json"
+                                    src="https://cdn.lordicon.com/iazmohzf.json"
                                     trigger="hover"
                                     colors="primary:#ffffff"
-                                    style={{ width: '2rem', height: '2rem' }}>
-                                </lord-icon>
+                                    style={{ width: '2rem', height: '2rem', }}>                                </lord-icon>
                             </div>
                             <span className=' text-bunker-600'>Nivel de usuario</span>
                         </div>
                         <div className='flex flex-col items-center justify-center'>
-                            <span className='text-[5rem] font-bold'>%</span>
-                            <strong>MADERA</strong>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/edbxxrcj.json"
+                                trigger="morph"
+                                style={{ width: '6rem', height: '6rem', }}>
+                            </lord-icon>
+                            <strong className='text-bunker-600'>PLATA</strong>
                         </div>
                     </div>
 
@@ -104,10 +109,10 @@ const Perfil = () => {
                         <div className='flex items-center gap-2'>
                             <div className='bg-slate-800 w-fit flex p-1 rounded-lg'>
                                 <lord-icon
-                                    src="https://cdn.lordicon.com/ulnswmkk.json"
+                                    src="https://cdn.lordicon.com/sbrtyqxj.json"
                                     trigger="hover"
                                     colors="primary:#ffffff"
-                                    style={{ width: '2rem', height: '2rem' }}>
+                                    style={{ width: '2rem', height: '2rem', }}>
                                 </lord-icon>
                             </div>
                             <span className=' text-bunker-600'>Puntos obtenidos</span>
@@ -118,7 +123,7 @@ const Perfil = () => {
                     </div>
                 </div>
             </div>
-            
+
         </>
     )
 }

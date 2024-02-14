@@ -1,14 +1,37 @@
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CartContext=createContext();
 
 const CartProvider=({children})=>{
 
 
+    const navegacion=useNavigate();
+
     const [carrito,setCarrito]=useState([]);
 
     const agregarProducto=(producto)=>{
-        setCarrito([...carrito,producto])
+        const estadoPro=carrito.some(pro=>pro.id===producto.id)
+        if(estadoPro){
+            
+            
+            const nuevoCarrito=carrito.map((pro)=>{
+            
+
+                const nuevCa=pro.cantidad+producto.cantidad;
+                if(nuevCa>pro.stock){
+                    console.log("Supero el stock")
+                    
+                }
+
+                (pro.id===producto.id)&&(pro.cantidad+=producto.cantidad);
+                 return pro;
+            })
+            setCarrito(nuevoCarrito);
+        }else{
+            setCarrito([...carrito,producto])
+        }
+
     }
 
     const obtenerTotalYCantidad=()=>
@@ -29,6 +52,8 @@ const CartProvider=({children})=>{
     const vaciarCarrito=()=>{
         setCarrito([]);
     }
+
+
 
     return (
 
