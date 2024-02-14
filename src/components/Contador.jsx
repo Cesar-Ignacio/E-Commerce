@@ -33,7 +33,7 @@ const Contador = ({ stock, detectarCantidad }) => {
     return (
         <div className='flex justify-between rounded-md overflow-hidden items-center  max-w-[6rem] border-solid border-[1px] border-amber-100 '>
             <button onClick={sumar} className=' text-[1.5rem]  w-[2rem] text-[#0fbdae] transition-colors duration-200 ease-in-out'>+</button>
-            <span className='text-[1.2rem] text-white font-bold' >{contador}</span>
+            <span className='text-[1.2rem] text-bunker-800 font-bold' >{contador}</span>
             <button onClick={restar} className=' text-[1.5rem]  w-[2rem] hover:text-[#0fbdae] transition-colors duration-200 ease-in-out'>-</button>
         </div>
 
