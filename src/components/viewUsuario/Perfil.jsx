@@ -2,9 +2,12 @@ import React, { useContext } from 'react'
 import { UserContext } from '../../context/UserContext'
 import { useNavigate } from 'react-router-dom';
 import { Avatar, Tooltip } from '@chakra-ui/react';
-import auricular from '../../assets/auricular.webp'
+import { LikedProductsContext } from '../../context/LikedProductsContext';
+
 const Perfil = () => {
 
+
+    const {delProducto,productoLiked }=useContext(LikedProductsContext);
 
     const { usuario, cerrarSesion } = useContext(UserContext);
 
@@ -61,27 +64,36 @@ const Perfil = () => {
                             <span className=' text-bunker-600'>Productos que te gustarón</span>
                         </div>
 
-                        <div className='group/pro bg-stone-50 p-1 flex items-center gap-2'>
-                            <div className='w-[3rem] h-[3rem] rounded-[50%] overflow-hidden'>
-                                <img className='object-cover w-[100%] h-[100%]' src={auricular} alt="img" />
-                            </div>
-                            <div className=' w-[70%] flex justify-between '>
-                                <span className='overflow-hidden whitespace-nowrap overflow-ellipsis w-[50%]'>Nombre Porducto</span>
-                                <span>$0.00</span>
-                                <span>1</span>
-                            </div>
-                            <Tooltip hasArrow label='Remover producto' bg='gray.300' color='black'>
-                                <button className='ml-3'>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/dykoqszm.json"
-                                        trigger="hover"
-                                        stroke="bold"
-                                        colors="primary:#121331,secondary:#16a9c7"
-                                        style={{width:'2rem',height:'2rem'}}>
-                                    </lord-icon>
-                                </button>
-                            </Tooltip>
-                        </div>
+                        {
+                            (productoLiked ) ? (
+                                productoLiked .map((pro,indice) => (
+                                    (pro.email===usuario?.email)&&(<div key={indice} className='bg-stone-50 p-1 flex items-center gap-2'>
+                                        <div className='w-[3rem] h-[3rem] rounded-[50%] overflow-hidden'>
+                                            <img className='object-cover w-[100%] h-[100%]' src={pro.url} alt="img" />
+                                        </div>
+                                        <div className=' w-[70%] flex justify-between '>
+                                            <span className='overflow-hidden whitespace-nowrap overflow-ellipsis w-[50%]'>{pro.nombre}</span>
+                                            <span>${pro.precio}</span>
+                                        </div>
+                                        <Tooltip hasArrow label='Remover producto' bg='gray.300' color='black'>
+                                            <button onClick={()=>delProducto(pro)}  className='ml-3'>
+                                                <lord-icon
+                                                    src="https://cdn.lordicon.com/dykoqszm.json"
+                                                    trigger="hover"
+                                                    stroke="bold"
+                                                    colors="primary:#121331,secondary:#16a9c7"
+                                                    style={{ width: '2rem', height: '2rem' }}>
+                                                </lord-icon>
+                                            </button>
+                                        </Tooltip>
+                                    </div>)
+                                ))
+                            ) : (
+                                <strong>Esta vacio</strong>
+                            )
+
+                        }
+
                     </div>
 
                     <div className='tracking-[1px] bg-slate-50 drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] p-5 rounded-2xl flex flex-col gap-2 '>

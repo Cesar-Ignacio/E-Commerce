@@ -12,19 +12,18 @@ const Carrito = () => {
 
   const { total, cantidad } = obtenerTotalYCantidad();
 
-
   const { usuario } = useContext(UserContext);
 
   return (
     <div className='container mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-5 tracking-[1px]'>
 
-      <Link className='tracking-[1px] flex flex-col items-center justify-center gap-4 p-5 bg-slate-50  rounded-2xl drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] col-span-1 '>
+      <Link  to={ usuario?.email ? `/perfil/${usuario.uid}`:"/Login"} className='tracking-[1px] flex flex-col items-center justify-center gap-4 p-5 bg-slate-50  rounded-2xl drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] col-span-1 '>
         <Avatar size='xl' name={usuario?.email} src={usuario?.photoURL} />
         <div className='overflow-hidden whitespace-nowrap overflow-ellipsis'>
-          <strong className='text-[1.2rem] text-slate-600 '>Cesar aquino</strong>
+          <strong className='text-[1.2rem] text-slate-600 '>{usuario?.displayName|| usuario?.email|| "Inicia Sesion"}</strong>
         </div>
       </Link>
-
+      
       <div className='flex flex-col gap-2 bg-slate-50 drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] p-5 rounded-2xl ' >
         <div className='flex items-center gap-2'>
           <div className='rounded-lg bg-slate-800 p-2'>
@@ -52,9 +51,9 @@ const Carrito = () => {
             </div>
             <span className='text-slate-600'>Productos de carrito</span>
           </div>
-
           {
             cantidad ? (carrito.map(producto => (
+              (producto.email===usuario?.email)&&(
               <div key={producto.id} className='group/pro bg-stone-50 p-1 flex items-center gap-2'>
                 <div className='w-[3rem] h-[3rem] rounded-[50%] overflow-hidden'>
                   <img className='object-cover w-[100%] h-[100%]' src={producto.url} alt="" />
@@ -73,7 +72,7 @@ const Carrito = () => {
                     style={{ width: '2rem', height: '2rem' }}>
                   </lord-icon>
                 </button>
-              </div>
+              </div>)
             ))) : (
               <div className=' h-[100%] flex justify-center items-center '>
                 <img className='w-[20rem]' src={carritoVacio } alt="img" />

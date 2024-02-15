@@ -9,6 +9,7 @@ import { Input, InputGroup, InputLeftAddon, InputLeftElement, } from '@chakra-ui
 import { EmailIcon, PhoneIcon } from '@chakra-ui/icons'
 import { UserContext } from '../../context/UserContext'
 import { DateTime } from "luxon";
+import { useToast } from '@chakra-ui/react'
 
 const schema = yup
     .object({
@@ -22,6 +23,7 @@ const schema = yup
 
 const Checkout = () => {
 
+    const toast = useToast()
 
     const [ordenes, setOrdenes] = useState();
 
@@ -37,7 +39,6 @@ const Checkout = () => {
 
     const fecha = DateTime.local();
 
-
     const onSubmit = (data) => {
 
         const orden = {
@@ -49,17 +50,31 @@ const Checkout = () => {
         }
 
         const ordenRef = collection(db, "ordenes")
-       
-        try {
-            
-            addDoc(ordenRef, orden)
-                .then(res => console.log(res))
-                
-        } catch (error) {
-            
-            console.log("Su carrito no cuenta con productos")
-        }
 
+        try {
+
+            addDoc(ordenRef, orden)
+                .then(res =>
+                    toast({
+                        title: '¡Felicidades!',
+                        description: `Se ha generado exitosamente la orden con el número: ${res.id}. Por favor, guarde este número para su referencia futura.`,
+                        status: 'success',
+                        duration: 9000,
+                        isClosable: true,
+                    }))
+
+
+        } catch (error) {
+
+            toast({
+                title: 'Problemas',
+                description: "Parece que hay un problema. Por favor, inicie sesión o asegúrese de que su carrito no esté vacío.",
+                status: 'info',
+                duration: 6000,
+                isClosable: true,
+            })
+
+        }
 
         setEstado(!estado);
         vaciarCarrito();
@@ -82,7 +97,7 @@ const Checkout = () => {
 
     return (
         <div className='container mx-auto mt-5'>
-            <div className='grid grid-cols-2 gap-5 '>
+            <div className='grid grid-cols-1  md:grid-cols-2 gap-5 '>
                 <div className='tracking-[1px] bg-slate-50 drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] p-5  rounded-2xl '>
                     <div className='flex items-center gap-2 mb-3'>
                         <div className='bg-slate-800 w-fit flex p-1 rounded-lg'>
@@ -166,12 +181,12 @@ const Checkout = () => {
                         {
                             ordenes ? (
                                 ordenes.map(ord => (
-                                    <div key={ord.id} className='bg-red-100 flex justify-around'>
+                                    <div key={ord.id} className='bg-red-100 p-1 flex justify-around flex-col xl:flex-row'>
                                         <strong>{ord.id}</strong>
                                         <strong>{ord.fecha}</strong>
                                     </div>
                                 ))
-                            ) : (<strong>Cargar...</strong>)
+                            ) : (<strong>Cargando...</strong>)
                         }
 
                     </div>

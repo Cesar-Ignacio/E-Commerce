@@ -2,22 +2,33 @@ import { Link } from "react-router-dom"
 import { obtenerDescuento } from "../utilities/utilidades"
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { UserContext } from "../context/UserContext";
+import { LikedProductsContext } from "../context/LikedProductsContext";
 
 const Item = ({ producto }) => {
 
-
-
   const { estado, precio } = obtenerDescuento(producto.precio, producto.descuento);
 
-  const { agregarProducto,validarProducto } = useContext(CartContext);
+  const { agregarProducto, validarProducto } = useContext(CartContext);
 
+  const { addProducto } = useContext(LikedProductsContext);
 
- 
+  const { usuario } = useContext(UserContext);
 
   const handleClickAddPro = () => {
-   
-      const estadoVerificacion=validarProducto({...producto,cantidad:1});
-      (estadoVerificacion)?agregarProducto({ ...producto, precio, cantidad: 1 }):console.log("Cantidad > Stock")
+
+    const estadoVerificacion = validarProducto({ ...producto, cantidad: 1 });
+    (estadoVerificacion) ? agregarProducto({ ...producto, precio, cantidad: 1 }) : console.log("Cantidad > Stock")
+  }
+
+  const agregarProductoAmegusta = () => {
+    if(usuario)
+    {
+      addProducto({ email: usuario?.email, ...producto })
+    }
+    else{
+      alert("Debe iniciar sesion");
+    }
   }
 
 
@@ -35,18 +46,19 @@ const Item = ({ producto }) => {
           <strong className="text-blue-600 " >${precio}</strong>
         </div>
       </div>
-
       <div className="absolute opacity-0  right-[-20px] p-2 group-hover:opacity-100 group-hover:right-2 transition-all ease-in-out duration-300 backdrop-blur-sm  xl:top-[20%] ">
         <ul className="flex flex-col gap-0 transition-all duration-300 ease-in-out group-hover:gap-5  ">
-          <li><Link  onClick={handleClickAddPro} className="bg-slate-200 block p-2  rounded-[50%] hover:bg-blue-600 group/item" >
+          <li><Link to={"/carrito"} onClick={handleClickAddPro} className="bg-slate-200 block p-2  rounded-[50%] hover:bg-blue-600 group/item" >
             <svg xmlns="http://www.w3.org/2000/svg" className="group-hover/item:fill-white w-[16px] bi bi-bag-fill transition-colors" fill="currentColor" viewBox="0 0 16 16">
               <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
             </svg>
           </Link>
           </li>
-          <li><a href="#" className="bg-slate-200  p-2  block rounded-[50%] hover:bg-blue-600 group/item"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="group-hover/item:fill-white bi bi-suit-heart-fill w-[16px]" viewBox="0 0 16 16">
+          <li><Link onClick={agregarProductoAmegusta} className="bg-slate-200  p-2  block rounded-[50%] hover:bg-blue-600 group/item"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="group-hover/item:fill-white bi bi-suit-heart-fill w-[16px]" viewBox="0 0 16 16">
             <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-          </svg></a></li>
+          </svg></Link>
+          </li>
+
           <li>
             <Link to={`/detail/${producto.id}`} className="bg-slate-200  block p-2  rounded-[50%] hover:bg-blue-600 group/item ">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="group-hover/item:fill-white bi bi-eye-fill w-[16px]" viewBox="0 0 16 16">
