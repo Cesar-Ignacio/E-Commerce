@@ -36,7 +36,7 @@ const Carrito = () => {
           <span className='text-slate-600'>Opciones de comprar</span>
         </div>
         <div className='flex flex-col gap-2 '>
-          <button className='border-bunker-300 tracking-[1px] text-bunker-500 bg-bunker-100 hover:bg-bunker-900 hover:text-bunker-50 border-[1px]  p-2 rounded-md transition-colors duration-300 ease-in-out'>Finalizar Comprar</button>
+          <Link to={"/checkout"} className='border-bunker-300 tracking-[1px] text-bunker-500 bg-bunker-100 hover:bg-bunker-900 hover:text-bunker-50 border-[1px]  p-2 rounded-md transition-colors duration-300 ease-in-out text-center'>Finalizar Comprar</Link>
           <button onClick={vaciarCarrito} className='border-bunker-300 tracking-[1px] text-bunker-500 bg-bunker-100 hover:bg-bunker-900 hover:text-bunker-50 border-[1px]  p-2 rounded-md transition-colors duration-300 ease-in-out' >Vaciar Carrito</button>
         </div>
       </div>
