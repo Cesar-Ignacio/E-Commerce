@@ -17,6 +17,7 @@
     "@hookform/resolvers": "^3.3.4",
     "firebase": "^10.7.2",
     "framer-motion": "^11.0.3",
+    "luxon": "^3.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.50.1",
