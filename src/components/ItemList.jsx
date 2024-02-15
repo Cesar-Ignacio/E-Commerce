@@ -6,7 +6,7 @@ const ItemList = ({productos}) => {
 
     return (
         <div >
-            <h2>ItemList Catálogo </h2>
+            
             <div className='p-2 rounded-md grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 ' >
                 {
                     (productos) && (
