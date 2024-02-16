@@ -1,7 +1,7 @@
 # VivaGearTech (e-commerce)
 ViveGearTech es el nombre que decidí darle a este proyecto que comencé a desarrollar mientras realizaba el curso de React en CoderHouse. Este proyecto sería la culminación de mis estudios y la presentación final del curso.
 
-
+![Uploading Vite-React-Google-Chrome-2024-02-15-23-39-24.gif…]()
 
 ViveGearTech es un e-commerce especializado en la venta de productos tecnológicos o, al menos, esa es la idea. Cuenta con un catálogo de productos, secciones donde los usuarios pueden ver los productos seleccionados para comprar, una página personalizada para cada usuario donde se muestran datos específicos como los productos que les gustaron, una sección para generar nuevas órdenes una vez finalizada la compra, y también una sección de inicio de sesión y registro.
 ## Tecnologías Utilizadas
@@ -32,3 +32,19 @@ ViveGearTech es un e-commerce especializado en la venta de productos tecnológic
     "react-magic-motion": "^1.1.2",
     "react-router-dom": "^6.21.2",
     "yup": "^1.3.3""
+
+## Instalación
+
+Sigue estos pasos para instalar y configurar el proyecto en tu entorno local:
+
+1. **Clona el repositorio desde GitHub:**
+
+       bash
+       git clone https://github.com/Cesar-Ignacio/E-Commerce`
+1. **Instala las dependencias necesarias**
+
+       cd tuprojecto
+       npm install 
+1.  **Inicia la aplicación:**
+
+        npm run dev
