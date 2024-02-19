@@ -5,17 +5,14 @@ const LikedProductsContext = createContext();
 
 const LikedProductsProvider = ({ children }) => {
 
-
-    
-    const [productoLiked, setProductoLiked] = useState([]);
+    const [productoLiked, setProductoLiked] = useState(JSON.parse(localStorage.getItem('productoMegusta')) || []);
 
     const addProducto = (producto) => {
         
-        let productosGuardados = JSON.parse(localStorage.getItem('productoMegusta')) || [];
         
         if (!existeProducto(producto)) {
-            productosGuardados.push(producto)
-            localStorage.setItem('productoMegusta', JSON.stringify(productosGuardados))
+            productoLiked.push(producto)
+            localStorage.setItem('productoMegusta', JSON.stringify(productoLiked))
             setProductoLiked([...JSON.parse(localStorage.getItem("productoMegusta"))])
         }
     }
@@ -26,7 +23,6 @@ const LikedProductsProvider = ({ children }) => {
 
 
     const delProducto = ({ email, id }) => {
-
 
         const nuevoArray = productoLiked.filter(pro => (pro.email + pro.id) !== (email + id))
 
