@@ -1,18 +1,25 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import CardWidget from './CardWidget'
 import SearchWidget from "./SearchWidget";
 import Categorias from './Categorias';
 import { Link } from 'react-router-dom';
-import { Avatar, Button, WrapItem, useDisclosure, Input } from '@chakra-ui/react';
+import { Avatar, WrapItem, useDisclosure, Input } from '@chakra-ui/react';
 import { UserContext } from '../context/UserContext';
-import { Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from '@chakra-ui/react'
+import { CategoriasContext } from '../context/CategoriaContext';
+
 const NavBar = () => {
+
+
+
+    const [cambioIcon, setCambioIcon] = useState(true);
 
     const cambiarTema = () => {
         document.documentElement.classList.toggle('dark');
+        setCambioIcon(!cambioIcon);
     }
 
+    const { categorias } = useContext(CategoriasContext);
     const { usuario } = useContext(UserContext);
 
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -70,16 +77,32 @@ const NavBar = () => {
                             <CardWidget />
                         </Link>
                         {/* IconTema */}
-                        <li className='flex '>
-                            <button onClick={cambiarTema}  >
-                                <svg xmlns="http://www.w3.org/2000/svg"  class="bi bi-brightness-low-fill w-[1.4rem] fill-bunker-700 dark:fill-bunker-200 hover:rotate-180 transition-transform duration-300 ease-in-out'" viewBox="0 0 16 16">
-                                    <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707" />
-                                </svg>
+                        <li>
+                            <button className='flex' onClick={cambiarTema}   >
+                                {(cambioIcon) ? (
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/hmygqgiw.json"
+                                        trigger="hover"
+                                        colors="primary:#000,secondary:#16a9c7"
+                                        style={{ width: '2rem', height: '2rem' }}>
+                                    </lord-icon>
+                                    
+                                ) : (
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/ymztzijg.json"
+                                    trigger="hover"
+                                    colors="primary:#ffffff,secondary:#16a9c7"
+                                    style={{ width: '2rem', height: '2rem' }}>
+                                </lord-icon>
+                    
+                                )
+                                }
                             </button>
                         </li>
-                        <li>
+                        {/* IconMenu */}
+                        <li className='  sm:hidden  '>
                             <button ref={btnRef} className='flex' onClick={onOpen}>
-                                <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-list w-[1.5rem]" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list w-[1.5rem]" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
                                 </svg>
                             </button>
@@ -93,25 +116,35 @@ const NavBar = () => {
                                 <DrawerContent >
                                     <DrawerCloseButton />
                                     <DrawerHeader>Create your account</DrawerHeader>
+                                    <DrawerBody >
+                                        <Input marginBottom={'1rem'} placeholder='Qué buscas?' />
+                                        <div className='flex flex-col gap-2'>
+                                            {
+                                                categorias?.map((categoria, indice) =>
+                                                (
+                                                    <Link to={`categoria/${categoria.nombre}`} key={indice} className='bg-curious-blue-950 hover:bg-curious-blue-800 transition-colors duration-300 ease-in-out text-white  flex justify-between p-2 items-center gap-3 tracking-[1px] rounded-md relative ' onClick={onClose} >
+                                                        <strong className='self-end p-2' >{categoria.nombre}</strong>
 
-                                    <DrawerBody onClick={onClose}>
-                                        <Input placeholder='Type here...' />
-                                        <Categorias />
+                                                        <lord-icon
+                                                            src={categoria?.icono}
+                                                            trigger="hover"
+                                                            colors="primary:#ffffff,secondary:#16a9c7"
+                                                            style={{ width: '2rem', height: '2rem' }}>
+                                                        </lord-icon>
+
+
+                                                    </Link>
+                                                ))
+                                            }
+                                        </div>
                                     </DrawerBody>
-
-                                    <DrawerFooter>
-                                        <Button variant='outline' mr={3} onClick={onClose}>
-                                            Cancel
-                                        </Button>
-                                        <Button colorScheme='blue'>Save</Button>
-                                    </DrawerFooter>
                                 </DrawerContent>
                             </Drawer>
                         </li>
                     </ol>
                 </div>
                 {/* CATEGORÍAS */}
-                <div className='col-start-1 col-end-4 hidden sm:block lg:w-[50%] container mx-auto pt-6  pb-3 text-[0.7rem] font-bold tracking-[2px] '>
+                <div className='col-start-1 col-end-4 hidden sm:block lg:w-[50%] container mx-auto pt-6  pb-3 text-[0.7rem] font-bold tracking-[2px]'>
                     <Categorias />
                 </div>
             </nav>
