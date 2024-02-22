@@ -65,7 +65,7 @@ const ItemDetail = ({ producto }) => {
                   </svg>
                 </Link>
 
-                <Link onClick={handleClickAddPro} className=' text-bunker-950 border-[2px] 
+                <Link  to={"/carrito"} onClick={handleClickAddPro} className=' text-bunker-950 border-[2px] 
                 border-[#0fbdae]  hover:drop-shadow-[0px_0px_2px_#0fbdae]  px-3 py-2 rounded-[2rem] transition-all duration-300 ease-in-out flex items-center'>
                   <span className='text-nowrap' >Agregar Producto</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-chevron-right w-[1.2rem] fill-[#0fbdae]" viewBox="0 0 16 16">

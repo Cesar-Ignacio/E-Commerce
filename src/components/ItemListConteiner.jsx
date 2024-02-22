@@ -27,12 +27,15 @@ const ItemListConteiner = () => {
   }, [categoria])
 
 
+
   return (
     <>
       <MagicMotion>
+
         <div className='container mx-auto'>
           <ItemList productos={datos} />
         </div>
+
       </MagicMotion>
     </>
   )
