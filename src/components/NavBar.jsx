@@ -1,7 +1,6 @@
 import React, { useContext, useRef, useState } from 'react'
 import CardWidget from './CardWidget'
-import SearchWidget from "./SearchWidget";
-import Categorias from './Categorias';
+
 import { Link } from 'react-router-dom';
 import { Avatar, WrapItem, useDisclosure, Input } from '@chakra-ui/react';
 import { UserContext } from '../context/UserContext';
@@ -9,8 +8,6 @@ import { Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerC
 import { CategoriasContext } from '../context/CategoriaContext';
 
 const NavBar = () => {
-
-
 
     const [cambioIcon, setCambioIcon] = useState(true);
 
@@ -86,21 +83,21 @@ const NavBar = () => {
                                         colors="primary:#000,secondary:#16a9c7"
                                         style={{ width: '2rem', height: '2rem' }}>
                                     </lord-icon>
-                                    
+
                                 ) : (
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/ymztzijg.json"
-                                    trigger="hover"
-                                    colors="primary:#ffffff,secondary:#16a9c7"
-                                    style={{ width: '2rem', height: '2rem' }}>
-                                </lord-icon>
-                    
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/ymztzijg.json"
+                                        trigger="hover"
+                                        colors="primary:#ffffff,secondary:#16a9c7"
+                                        style={{ width: '2rem', height: '2rem' }}>
+                                    </lord-icon>
+
                                 )
                                 }
                             </button>
                         </li>
                         {/* IconMenu */}
-                        <li className='  sm:hidden  '>
+                        <li className='sm:hidden'>
                             <button ref={btnRef} className='flex' onClick={onOpen}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list w-[1.5rem]" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
@@ -144,8 +141,12 @@ const NavBar = () => {
                     </ol>
                 </div>
                 {/* CATEGORÍAS */}
-                <div className='col-start-1 col-end-4 hidden sm:block lg:w-[50%] container mx-auto pt-6  pb-3 text-[0.7rem] font-bold tracking-[2px]'>
-                    <Categorias />
+                <div className='col-start-1 col-end-4 hidden sm:flex lg:w-[50%] justify-evenly container mx-auto py-2 font-bold tracking-[2px] '>
+                    {
+                        categorias?.map((categoria,indice)=>(
+                            <Link  key={indice} to={`categoria/${categoria.nombre}`} className='text-[0.7rem] text-bunker-400 hover:text-bunker-300  dark:text-bunker-100'>{categoria.nombre}</Link>
+                        ))
+                    }
                 </div>
             </nav>
 

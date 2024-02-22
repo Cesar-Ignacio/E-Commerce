@@ -1,14 +1,17 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { UserContext } from "./UserContext";
 
 const LikedProductsContext = createContext();
 
 
 const LikedProductsProvider = ({ children }) => {
 
+
+    const {usuario}=useContext(UserContext);
+
     const [productoLiked, setProductoLiked] = useState(JSON.parse(localStorage.getItem('productoMegusta')) || []);
 
     const addProducto = (producto) => {
-        
         
         if (!existeProducto(producto)) {
             productoLiked.push(producto)
@@ -32,8 +35,10 @@ const LikedProductsProvider = ({ children }) => {
 
     }
 
+    const cantidadProUsu=productoLiked.filter(pro=>pro.email===usuario?.email)
+
     return (
-        <LikedProductsContext.Provider value={{ addProducto, productoLiked, delProducto }}>
+        <LikedProductsContext.Provider value={{ addProducto, productoLiked, delProducto,cantidadProUsu}}>
             {children}
         </LikedProductsContext.Provider>
     )
