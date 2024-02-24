@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../dataBase/dataBase'
 import { MagicMotion } from 'react-magic-motion'
+import { SearchContext } from '../context/SearchContext'
 
 
 const ItemListConteiner = () => {
@@ -12,9 +13,9 @@ const ItemListConteiner = () => {
 
   const { categoria } = useParams();
 
+  const { searchPro } = useContext(SearchContext);
 
   useEffect(() => {
-
     const q = query(collection(db, "productos"), categoria && (where("categoria", ("=="), categoria || "")))
     getDocs(q)
       .then(results => {
@@ -26,7 +27,13 @@ const ItemListConteiner = () => {
 
   }, [categoria])
 
+  useEffect(()=>{
+    
+    setDatos(searchPro);
 
+  },[searchPro])
+
+  
 
   return (
     <>
