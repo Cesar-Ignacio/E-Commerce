@@ -13,8 +13,8 @@ const Buscador = () => {
 
 
     return (
-        <div className='container mx-auto flex justify-center mb-5'>
-            <InputGroup style={{ width: '40%' }}>
+        <div className='container  mx-auto w-[80%] md:w-[40%] flex justify-center mb-5'>
+            <InputGroup >
                 <InputLeftElement pointerEvents='none'>
                     <iframe className='w-8 h-8' src="https://lottie.host/embed/4f03eec5-aed1-4d91-8bed-004d162a6aef/4sZyphQMCT.json"></iframe>
                 </InputLeftElement>

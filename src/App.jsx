@@ -11,7 +11,6 @@ import { UserProvider } from './context/UserContext';
 import Perfil from './components/viewUsuario/Perfil';
 import { LikedProductsProvider } from './context/LikedProductsContext';
 import { CategoriaProvider } from './context/CategoriaContext';
-import Buscador from './components/Buscador';
 import { SearchProvider } from './context/SearchContext';
 function App() {
 
@@ -24,7 +23,6 @@ function App() {
             <CartProvider>
               <SearchProvider>
                 <NavBar />
-                <Buscador />
                 <Routes>
                   <Route path='/' element={<ItemListConteiner />} />
                   <Route path='/categoria/:categoria' element={<ItemListConteiner />} />

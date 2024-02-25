@@ -5,6 +5,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../dataBase/dataBase'
 import { MagicMotion } from 'react-magic-motion'
 import { SearchContext } from '../context/SearchContext'
+import Buscador from './Buscador'
 
 
 const ItemListConteiner = () => {
@@ -38,7 +39,7 @@ const ItemListConteiner = () => {
   return (
     <>
       <MagicMotion>
-
+        <Buscador/>
         <div className='container mx-auto'>
           <ItemList productos={datos} />
         </div>
