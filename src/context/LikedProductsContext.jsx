@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { UserContext } from "./UserContext";
 
 const LikedProductsContext = createContext();
 
@@ -6,16 +7,15 @@ const LikedProductsContext = createContext();
 const LikedProductsProvider = ({ children }) => {
 
 
-    
-    const [productoLiked, setProductoLiked] = useState([]);
+    const {usuario}=useContext(UserContext);
+
+    const [productoLiked, setProductoLiked] = useState(JSON.parse(localStorage.getItem('productoMegusta')) || []);
 
     const addProducto = (producto) => {
         
-        let productosGuardados = JSON.parse(localStorage.getItem('productoMegusta')) || [];
-        
         if (!existeProducto(producto)) {
-            productosGuardados.push(producto)
-            localStorage.setItem('productoMegusta', JSON.stringify(productosGuardados))
+            productoLiked.push(producto)
+            localStorage.setItem('productoMegusta', JSON.stringify(productoLiked))
             setProductoLiked([...JSON.parse(localStorage.getItem("productoMegusta"))])
         }
     }
@@ -27,7 +27,6 @@ const LikedProductsProvider = ({ children }) => {
 
     const delProducto = ({ email, id }) => {
 
-
         const nuevoArray = productoLiked.filter(pro => (pro.email + pro.id) !== (email + id))
 
         localStorage.setItem('productoMegusta', JSON.stringify(nuevoArray))
@@ -36,8 +35,10 @@ const LikedProductsProvider = ({ children }) => {
 
     }
 
+    const cantidadProUsu=productoLiked.filter(pro=>pro.email===usuario?.email)
+
     return (
-        <LikedProductsContext.Provider value={{ addProducto, productoLiked, delProducto }}>
+        <LikedProductsContext.Provider value={{ addProducto, productoLiked, delProducto,cantidadProUsu}}>
             {children}
         </LikedProductsContext.Provider>
     )

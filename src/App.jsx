@@ -10,28 +10,34 @@ import Login from './components/viewUsuario/Login'
 import { UserProvider } from './context/UserContext';
 import Perfil from './components/viewUsuario/Perfil';
 import { LikedProductsProvider } from './context/LikedProductsContext';
+import { CategoriaProvider } from './context/CategoriaContext';
+import { SearchProvider } from './context/SearchContext';
 function App() {
 
   return (
     <>
 
       <UserProvider>
-        <LikedProductsProvider>
-          <CartProvider>
+        <CategoriaProvider>
+          <LikedProductsProvider>
+            <CartProvider>
+              <SearchProvider>
+                <NavBar />
+                <Routes>
+                  <Route path='/' element={<ItemListConteiner />} />
+                  <Route path='/categoria/:categoria' element={<ItemListConteiner />} />
+                  <Route path='/detail/:idProducto' element={<ItemDetailContainer />} />
+                  <Route path='/perfil/:idUsuario' element={<Perfil />} />
+                  <Route path='/login' element={<Login />} />
+                  <Route path='/carrito' element={<Carrito />} />
+                  <Route path='/checkout' element={<Checkout />} />
+                  <Route path='*' element={<p>Pagina 404</p>} />
+                </Routes>
+              </SearchProvider>
+            </CartProvider>
+          </LikedProductsProvider>
+        </CategoriaProvider>
 
-            <NavBar />
-            <Routes>
-              <Route path='/' element={<ItemListConteiner />} />
-              <Route path='/categoria/:categoria' element={<ItemListConteiner />} />
-              <Route path='/detail/:idProducto' element={<ItemDetailContainer />} />
-              <Route path='/perfil/:idUsuario' element={<Perfil />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/carrito' element={<Carrito />} />
-              <Route path='/checkout' element={<Checkout />} />
-              <Route path='*' element={<p>Pagina 404</p>} />
-            </Routes>
-          </CartProvider>
-        </LikedProductsProvider>
       </UserProvider>
 
     </>

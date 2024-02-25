@@ -17,13 +17,14 @@ const Carrito = () => {
   return (
     <div className='container mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-5 tracking-[1px]'>
 
-      <Link  to={ usuario?.email ? `/perfil/${usuario.uid}`:"/Login"} className='tracking-[1px] flex flex-col items-center justify-center gap-4 p-5 bg-slate-50  rounded-2xl drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] col-span-1 '>
+      {/* view usuario */}
+      <Link to={usuario?.email ? `/perfil/${usuario.uid}` : "/Login"} className='tracking-[1px] flex flex-col items-center justify-center gap-4 p-5 bg-slate-50  rounded-2xl drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] col-span-1 '>
         <Avatar size='xl' name={usuario?.email} src={usuario?.photoURL} />
         <div className='overflow-hidden whitespace-nowrap overflow-ellipsis'>
-          <strong className='text-[1.2rem] text-slate-600 '>{usuario?.displayName|| usuario?.email|| "Inicia Sesion"}</strong>
+          <strong className='text-[1.2rem] text-slate-600 '>{usuario?.displayName || usuario?.email || "Inicia Sesion"}</strong>
         </div>
       </Link>
-      
+      {/* Opciones de compra */}
       <div className='flex flex-col gap-2 bg-slate-50 drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] p-5 rounded-2xl ' >
         <div className='flex items-center gap-2'>
           <div className='rounded-lg bg-slate-800 p-2'>
@@ -36,7 +37,7 @@ const Carrito = () => {
         </div>
         <div className='flex flex-col gap-2 '>
           <Link to={"/checkout"} className='border-bunker-300 tracking-[1px] text-bunker-500 bg-bunker-100 hover:bg-bunker-900 hover:text-bunker-50 border-[1px]  p-2 rounded-md transition-colors duration-300 ease-in-out text-center'>Finalizar Comprar</Link>
-          <button onClick={vaciarCarrito} className='border-bunker-300 tracking-[1px] text-bunker-500 bg-bunker-100 hover:bg-bunker-900 hover:text-bunker-50 border-[1px]  p-2 rounded-md transition-colors duration-300 ease-in-out' >Vaciar Carrito</button>
+          <button   onClick={vaciarCarrito} className='border-bunker-300 tracking-[1px] text-bunker-500 bg-bunker-100 hover:bg-bunker-900 hover:text-bunker-50 border-[1px]  p-2 rounded-md transition-colors duration-300 ease-in-out' >Vaciar Carrito</button>
         </div>
       </div>
 
@@ -53,29 +54,29 @@ const Carrito = () => {
           </div>
           {
             cantidad ? (carrito.map(producto => (
-              (producto.email===usuario?.email)&&(
-              <div key={producto.id} className='group/pro bg-stone-50 p-1 flex items-center gap-2'>
-                <div className='w-[3rem] h-[3rem] rounded-[50%] overflow-hidden'>
-                  <img className='object-cover w-[100%] h-[100%]' src={producto.url} alt="" />
-                </div>
-                <div className=' w-[70%] flex justify-between '>
-                  <span className='overflow-hidden whitespace-nowrap overflow-ellipsis w-[50%]'>{producto.nombre}</span>
-                  <span>${producto.precio}</span>
-                  <span>{producto.cantidad}</span>
-                </div>
-                <button onClick={() => eliminarProductoId(producto.id)} className='ml-3'>
-                  <lord-icon
-                    src="https://cdn.lordicon.com/dykoqszm.json"
-                    trigger="hover"
-                    stroke="bold"
-                    colors="primary:#121331,secondary:#16a9c7"
-                    style={{ width: '2rem', height: '2rem' }}>
-                  </lord-icon>
-                </button>
-              </div>)
+              (producto.email === usuario?.email) && (
+                <div key={producto.id} className='group/pro bg-stone-50 p-1 flex items-center gap-2'>
+                  <div className='w-[3rem] h-[3rem] rounded-[50%] overflow-hidden'>
+                    <img className='object-cover w-[100%] h-[100%]' src={producto.url} alt="" />
+                  </div>
+                  <div className=' w-[70%] flex justify-between '>
+                    <span className='overflow-hidden whitespace-nowrap overflow-ellipsis w-[50%]'>{producto.nombre}</span>
+                    <span>${producto.precio}</span>
+                    <span>{producto.cantidad}</span>
+                  </div>
+                  <button onClick={() => eliminarProductoId(producto.id)} className='ml-3'>
+                    <lord-icon
+                      src="https://cdn.lordicon.com/dykoqszm.json"
+                      trigger="hover"
+                      stroke="bold"
+                      colors="primary:#121331,secondary:#16a9c7"
+                      style={{ width: '2rem', height: '2rem' }}>
+                    </lord-icon>
+                  </button>
+                </div>)
             ))) : (
               <div className=' h-[100%] flex justify-center items-center '>
-                <img className='w-[20rem]' src={carritoVacio } alt="img" />
+                <img className='w-[20rem]' src={carritoVacio} alt="img" />
               </div>
             )
           }

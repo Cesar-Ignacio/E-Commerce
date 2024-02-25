@@ -83,7 +83,7 @@ const Login = () => {
     return (
         <div className='container mx-auto  flex flex-col items-center justify-center  gap-3'>
 
-            <div className="bg-slate-50 drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] px-14 py-7 rounded-2xl w-[80%] flex flex-col gap-4 sxm:w-[50%] lg:w-[35%]">
+            <div className="bg-slate-50 drop-shadow-[0_0px_8px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_0px_5px_white] p-5 sm:px-14 sm:py-7 rounded-2xl w-[80%] flex flex-col gap-4 sxm:w-[50%] lg:w-[35%]">
                 <div className="flex flex-col gap-2">
                     <strong className="tracking-[2px] text-[1.5rem] text-bunker-900">Sign In</strong>
                     <p className="text-bunker-500 tracking-[1px]">Login to manage your account</p>

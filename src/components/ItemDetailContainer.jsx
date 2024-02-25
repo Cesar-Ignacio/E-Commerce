@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail';
-import { productoPorId } from '../utilities/data';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../dataBase/dataBase';

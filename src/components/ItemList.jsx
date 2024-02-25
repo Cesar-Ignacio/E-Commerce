@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Item from './Item'
 
-
-const ItemList = ({productos}) => {
+const ItemList = ({ productos }) => {
 
     return (
         <div >
-            
-            <div className='p-2 rounded-md grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 ' >
+            <div className='p-2 rounded-md grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 ' >
                 {
                     (productos) && (
                         productos.map(producto => (

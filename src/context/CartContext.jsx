@@ -8,29 +8,30 @@ const CartProvider = ({ children }) => {
 
     const { usuario } = useContext(UserContext);
 
+    /**El valor del carrito sera un array vacio o sera un array de objetos */
     const [carrito, setCarrito] = useState(JSON.parse(localStorage.getItem('carrito')) || []);
 
     const agregarProducto = (producto) => {
 
-        // let productosGuardados = JSON.parse(localStorage.getItem('carrito')) || [];
-
+        /**Verificamos que el producto no exista,  */
         const estadoPro = carrito.some(pro => (pro.email + pro.id) === (usuario.email + producto.id))
 
         if (estadoPro) {
+            /**Si existe modificamos la cantidad del producto */
             const nuevoCarrito = carrito.map((pro) => {
                 (pro.email + pro.id) === (usuario.email + producto.id) && (pro.cantidad += producto.cantidad);
                 return pro;
             })
-            // setCarrito(nuevoCarrito);
+            /**Actualizamos el localStorage */
             localStorage.setItem('carrito', JSON.stringify(nuevoCarrito))
-            setCarrito([...JSON.parse(localStorage.getItem("carrito"))])
         } else {
-            // setCarrito([...carrito, producto])
+            /**No existe lo agregamo  */
             carrito.push({ ...producto, email: usuario.email })
+            /**Actualizamos el localStorage */
             localStorage.setItem('carrito', JSON.stringify(carrito))
-            setCarrito([...JSON.parse(localStorage.getItem("carrito"))])
         }
-
+        /**Actualizamos el estado carrito con los datos del local Storage */
+        setCarrito([...JSON.parse(localStorage.getItem("carrito"))])
     }
 
     const obtenerTotalYCantidad = () => {
