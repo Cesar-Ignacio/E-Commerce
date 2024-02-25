@@ -24,7 +24,7 @@ const NavBar = () => {
 
     return (
         <header className='border-b-2 border-bunker-400 mb-[2rem]'>
-            <nav className='grid grid-cols-3  container mx-auto dark:text-bunker-100' >
+            <nav className='grid grid-cols-3 container mx-auto dark:text-bunker-100 sm:gap-y-3' >
                 {/* LOGO */}
                 <div className='col-span-4 row-start-2   sm:row-start-1  sm:col-start-1 sm:col-span-1  lg:col-start-2 justify-self-center '>
                     <Link to={"/"}>
@@ -144,7 +144,7 @@ const NavBar = () => {
                 <div className='col-start-1 col-end-4 hidden sm:flex lg:w-[50%] justify-evenly container mx-auto py-2 font-bold tracking-[2px] '>
                     {
                         categorias?.map((categoria,indice)=>(
-                            <Link  key={indice} to={`categoria/${categoria.nombre}`} className='text-[0.7rem] text-bunker-400 hover:text-bunker-300  dark:text-bunker-100'>{categoria.nombre}</Link>
+                            <Link  key={indice} to={`categoria/${categoria.nombre}`} className='text-[0.8rem] text-bunker-400 hover:text-bunker-300  dark:text-bunker-100'>{categoria.nombre}</Link>
                         ))
                     }
                 </div>
