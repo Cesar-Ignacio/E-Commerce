@@ -25,13 +25,14 @@ ViveGearTech es un e-commerce especializado en la venta de productos tecnológic
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.3.4",
+    "algoliasearch": "^4.22.1",
     "firebase": "^10.7.2",
     "framer-motion": "^11.0.3",
     "luxon": "^3.4.4",
     "react-hook-form": "^7.50.1",
     "react-magic-motion": "^1.1.2",
     "react-router-dom": "^6.21.2",
-    "yup": "^1.3.3""
+    "yup": "^1.3.3"
 
 ## Instalación
 
