@@ -40,11 +40,10 @@ Sigue estos pasos para instalar y configurar el proyecto en tu entorno local:
 
 1. **Clona el repositorio desde GitHub:**
 
-       bash
        git clone https://github.com/Cesar-Ignacio/E-Commerce`
 1. **Instala las dependencias necesarias**
 
-       cd tuprojecto
+       cd E-Commerce
        npm install 
 1.  **Inicia la aplicación:**
 
