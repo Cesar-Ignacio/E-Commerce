@@ -69,7 +69,7 @@ const Perfil = () => {
                                     style={{ width: '2rem', height: '2rem' }}>
                                 </lord-icon>
                             </div>
-                            <span className=' text-bunker-600'>Productos que te gustarón</span>
+                            <span className=' text-bunker-600'>Productos que te gustaron</span>
                         </div>
                         {/* Contenedor */}
                         {
