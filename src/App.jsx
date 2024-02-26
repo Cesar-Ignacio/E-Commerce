@@ -12,6 +12,7 @@ import Perfil from './components/viewUsuario/Perfil';
 import { LikedProductsProvider } from './context/LikedProductsContext';
 import { CategoriaProvider } from './context/CategoriaContext';
 import { SearchProvider } from './context/SearchContext';
+import Footer from './components/footer/Footer';
 function App() {
 
   return (
@@ -22,17 +23,24 @@ function App() {
           <LikedProductsProvider>
             <CartProvider>
               <SearchProvider>
-                <NavBar />
-                <Routes>
-                  <Route path='/' element={<ItemListConteiner />} />
-                  <Route path='/categoria/:categoria' element={<ItemListConteiner />} />
-                  <Route path='/detail/:idProducto' element={<ItemDetailContainer />} />
-                  <Route path='/perfil/:idUsuario' element={<Perfil />} />
-                  <Route path='/login' element={<Login />} />
-                  <Route path='/carrito' element={<Carrito />} />
-                  <Route path='/checkout' element={<Checkout />} />
-                  <Route path='*' element={<p>Pagina 404</p>} />
-                </Routes>
+                <div className='flex flex-col h-[100vh] gap-4'>
+                  <div className='flex-1'>
+                    <NavBar />
+                    <Routes>
+                      <Route path='/' element={<ItemListConteiner />} />
+                      <Route path='/categoria/:categoria' element={<ItemListConteiner />} />
+                      <Route path='/detail/:idProducto' element={<ItemDetailContainer />} />
+                      <Route path='/perfil/:idUsuario' element={<Perfil />} />
+                      <Route path='/login' element={<Login />} />
+                      <Route path='/carrito' element={<Carrito />} />
+                      <Route path='/checkout' element={<Checkout />} />
+                      <Route path='*' element={<p>Pagina 404</p>} />
+                    </Routes>
+                  </div>
+                  <div className='shrink-0 bg-bunker-800 '>
+                    <Footer />
+                  </div>
+                </div>
               </SearchProvider>
             </CartProvider>
           </LikedProductsProvider>
